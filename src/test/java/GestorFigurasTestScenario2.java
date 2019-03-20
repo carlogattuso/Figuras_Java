@@ -31,12 +31,14 @@ public class GestorFigurasTestScenario2 {
          double area = figuras[0].area();
          Assert.assertEquals(expected,area,0.0);
     }
+
     @Test
     public void rectangleAreaTest () {
         double expected = 5;
         double area = figuras[1].area();
         Assert.assertEquals(expected,area,0.0);
     }
+
     @Test
     public void circleAreaTest () {
         double expected = Math.PI*9;
@@ -49,12 +51,14 @@ public class GestorFigurasTestScenario2 {
         double area = figuras[3].area();
         Assert.assertEquals(expected,area,0.0);
     }
+
     @Test
     public void diamondAreaTest () {
         double expected = 1;
         double area = figuras[4].area();
         Assert.assertEquals(expected,area,0.0);
     }
+    
     @Test
     public void areaSumTest () {
         double expected = 4 + 5 + Math.PI*9 + 4 + 1;
