@@ -1,16 +1,18 @@
 import javafx.scene.shape.TriangleMesh;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-public class Scenario_Tests_2 {
+public class GestorFigurasTestScenario2 {
 
-    Figura [] figuras = new Figura[5];
+    private Figura [] figuras = null;
 
     @Before
     public void Initialize () {
+        this.figuras = new Figura[5];
         figuras[0] = new Cuadrado(2);
         figuras[1] = new Rectángulo(1,5);
         figuras[2] = new Círculo(3);
@@ -18,44 +20,49 @@ public class Scenario_Tests_2 {
         figuras[4] = new Rombo(1,2,1);
     }
 
+    @After
+    public void tearDown () {
+        this.figuras = null;
+    }
+
     @Test
-    public void SquareAreaTest () {
+    public void squareAreaTest () {
          double expected = 4;
          double area = figuras[0].area();
          Assert.assertEquals(expected,area,0.0);
     }
     @Test
-    public void RectangleAreaTest () {
+    public void rectangleAreaTest () {
         double expected = 5;
         double area = figuras[1].area();
         Assert.assertEquals(expected,area,0.0);
     }
     @Test
-    public void CircleAreaTest () {
+    public void circleAreaTest () {
         double expected = Math.PI*9;
         double area = figuras[2].area();
         Assert.assertEquals(expected,area,0.0);
     }
     @Test
-    public void TrianguleAreaTest () {
+    public void trianguleAreaTest () {
         double expected = 4;
         double area = figuras[3].area();
         Assert.assertEquals(expected,area,0.0);
     }
     @Test
-    public void DiamondAreaTest () {
+    public void diamondAreaTest () {
         double expected = 1;
         double area = figuras[4].area();
         Assert.assertEquals(expected,area,0.0);
     }
     @Test
-    public void AreaSumTest () {
+    public void areaSumTest () {
         double expected = 4 + 5 + Math.PI*9 + 4 + 1;
         double sum = GestorFiguras.suma(figuras);
         Assert.assertEquals(expected,sum,0.0);
     }
     @Test
-    public void SortTest () {
+    public void sortTest () {
         GestorFiguras.sort(figuras);
         Assert.assertTrue(figuras[0] instanceof Círculo);
         Assert.assertTrue(figuras[1] instanceof Rectángulo);
